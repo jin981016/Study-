@@ -1,0 +1,104 @@
+MIRIAD
+
+1.다운로드 할 목록들 # 무조건 순서대로 진행 할 것
+sudo apt-get install -y build-essential pgplot5 gfortran libreadline-dev libforms-bin csh cvs
+sudo apt-get install -y csh
+sudo apt install -y gv
+sudo apt-get install -y pgplot5
+sudo apt-get install -y libx11-dev
+sudo apt-get install -y libbsd-dev
+sudo ln -s /usr/lib/x86_64-linux-gnu/libbsd.a /usr/lib/libbsd.a
+sudo apt-get install -y libreadline-dev
+sudo ln -s /usr/lib/x86_64-linux-gnu/libreadline.a /usr/lib/libreadline.a
+sudo apt-get install -y libforms-dev
+sudo apt-get install -y libx11-dev
+sudo apt-get install -y libx11-doc
+sudo apt-get install -y libxaw-doc
+sudo apt-get install -y libxaw7-dev
+sudo apt-get install -y libxt-dev
+sudo apt-get install -y libxpm-dev
+sudo apt-get install -y libice-dev
+sudo apt-get install -y libsm-dev
+sudo apt-get install -y wcslib-dev
+sudo apt-get install -y wcslib-doc
+
+2. 설치 및 압축해제.
+wget ftp://ftp.astro.umd.edu/progs/carma/miriad_2014.7/miriad_linux64_u14_gfortran.tar.gz 
+tar pxvf miriad_linux64_u14_gfortran.tar.gz
+3.
+cd miriad
+cvs update
+cvs login
+# 이때, 자신이 등록할 비밀번호 그냥 설정해주면 된다.
+
+install/install.miriad telescople=carma
+
+
+
+4. 설치하고, 내 파일 들어가서 (홈 0, 바탕화면 이런 곳x ) , ctrl + H 누르고 숨은 bash.rc 파일 찾기
+
+5.5. 들어가서 빈 공간(맨 아래 빈 공간) 에서,  
+여기서 /path/to/mriad를 , cd miriad 로 들어가서 pwd 입력하고 나서, 파일 경로 파악해서 입력.
+
+#source miriad environment variables
+alias mirenv="source /path/to/miriad/miriad_start.sh"
+#                     /path/to -> 자신의 pwd 경로로 수정.    
+#source miriad environment variables
+source /path/to/miriad/miriad_start.sh
+
+ex)
+cd mirid 
+pwd
+/home/jin/miriad
+
+#source miriad environment variables
+alias mirenv="source /home/jin/miriad/miriad_start.sh"
+#source miriad environment variables
+source /home/jin/miriad/miriad_start.sh
+
+6. start
+cd miriad
+
+miriad 
+
+
+
+
+# 터미널에서 ls 나 pwd 눌러서 항상 어디 있는지 확인. 
+만약에 miraid 밖에 있으면 cd miriad 눌러서 파일로 들어가야함.
+
+
+# 그리고 파일을 다운로드 했다면,
+mv /home/jin/다운로드/test.fits /home/jin/miriad
+로 옮기기. 참고로 위에 /home/jin/다운로드 이 문장도 
+각자 pwd를 사용하여 자신이 다운로드 한 경로는 파악해야함.
+
+KARMA 
+1.Download
+
+wget ftp://ftp.atnf.csiro.au/pub/software/karma/karma-1.7.25-amd64_Linux_libc6.3.tar.bz2 
+wget ftp://ftp.atnf.csiro.au/pub/software/karma/karma-1.7.25-common.tar.bz2
+
+
+2.unzip
+tar pxvf karma-1.7.25-amd64_Linux_libc6.3.tar.bz2
+tar pxvf karma-1.7.25-common.tar.bz2
+
+
+3.
+mkdir KARMA
+mv karma-1.7.25 KARMA
+
+
+4. /home/jin/KARMA -> change my pwd
+
+sudo ln -s /home/jin/KARMA/karma-1.7.25/amd64_Linux_libc6.3/ /usr/local/karma 
+
+
+5.
+source /usr/local/karma/.karmarc 
+
+6. 설치 확인 
+kpvslice
+kvis
+
